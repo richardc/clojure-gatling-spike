@@ -10,4 +10,5 @@ TODO:
 - [x] sbt scaffolding
 - [x] Make websockets call
 - [x] With client certs
-- [ ] Call into clojure to use message codec
+- [x] Call into clojure to use message codec
+- [ ] Verify message bodies we get back
