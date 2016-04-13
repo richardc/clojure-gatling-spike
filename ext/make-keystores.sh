@@ -2,11 +2,12 @@
 set -x
 set -e
 # expects a relative pcp-broker checkout
+# drops keystores in src/test/resources
 
 keytool -importcert \
         -file ../pcp-broker/test-resources/ssl/ca/ca_crt.pem \
         -storepass foobarbaz \
-        -keystore truststore.ks \
+        -keystore src/test/resources/truststore.ks \
         -noprompt
 
 cat ../pcp-broker/test-resources/ssl/private_keys/client01.example.com.pem \
@@ -21,7 +22,7 @@ openssl pkcs12 \
 
 keytool -importkeystore \
         -storepass foobarbaz \
-        -destkeystore keystore.ks \
+        -destkeystore src/test/resources/keystore.ks \
         -srckeystore client01.example.com.p12 \
         -srcstorepass foobarbaz \
         -srcstoretype PKCS12 \
